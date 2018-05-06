@@ -7,6 +7,12 @@ class BaseView(View):
         self.__template = template
         self.__context = {}
 
+    def get(self, request):
+        return self.dispatch_request()
+
+    def post(self, request):
+        pass
+
     def get_context(self):
         return self.__context
 

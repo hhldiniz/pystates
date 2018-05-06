@@ -56,7 +56,7 @@ class State:
             result.append(obj)
         return result
 
-    def insert_one(self):
+    def save(self):
         name = self.get_name()
         population = self.get_population()
         pib = self.get_pib()
@@ -64,4 +64,4 @@ class State:
         db = db_client.get_database(database_name="pystates")
         collection = db["states"]
         obj_to_insert = {name: name, population: population, pib: pib}
-        return collection.insert(obj_to_insert)
+        return collection.insert_one(obj_to_insert)
