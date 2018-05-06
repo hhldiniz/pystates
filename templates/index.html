@@ -1,1 +1,22 @@
 {% extends "base_template.html" %}
+{% block scripts %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    {{ super() }}
+    <form method="POST">
+        <div class="form-group">
+            <label for="state_name">Nome do Estado:</label>
+            <input class="form-control" id="state_name">
+        </div>
+        <div class="form-group">
+            <label for="pib">PIB:</label>
+            <input type="number" class="form-control" id="pib" min="0">
+        </div>
+        <div class="form-group">
+            <label for="population">População</label>
+            <input type="number" class="form-control" id="population">
+        </div>
+        <button class="btn-primary btn" id="register_btn">Cadastrar</button>
+    </form>
+{% endblock %}
