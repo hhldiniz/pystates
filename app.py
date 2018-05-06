@@ -1,12 +1,14 @@
 from flask import Flask
-from flask import render_template
+
+from views.IndexView import IndexView
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-    return render_template("index.html")
+def index():
+    index_view = IndexView("index.html")
+    return index_view.dispatch_request()
 
 
 if __name__ == '__main__':
