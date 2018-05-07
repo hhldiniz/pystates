@@ -3,6 +3,9 @@
     {{ super() }}
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 {% endblock %}
+{% block styles %}
+    {{ super() }}
+{% endblock %}
 {% block content %}
     {{ super() }}
     <form method="POST">

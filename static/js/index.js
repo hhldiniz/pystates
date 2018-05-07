@@ -7,8 +7,17 @@ $(document).ready(function(){
         xmlHttpRequest.onreadystatechange = function(){
             if(this.readyState === 4 && this.status === 200)
             {
-                let response = this.responseText;
-                alert(response);
+                let response = JSON.parse(this.responseText);
+                if(response['result'])
+                    new Noty({
+                        text: "Cadastro realizado com sucesso!",
+                        type: "success"
+                    }).show();
+                else
+                    new Noty({
+                        text:"Um erro ocorreu ao realizar a inclusão do estado",
+                        type:"error"
+                    }).show();
             }
         };
        xmlHttpRequest.open("POST","/", true);
