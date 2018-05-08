@@ -2,6 +2,8 @@
 {% block scripts %}
     {{ super() }}
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="{{ url_for('static',filename='js/graph_menu_controller.js') }}"></script>
 {% endblock %}
 {% block styles %}
     {{ super() }}
@@ -24,4 +26,82 @@
         </div>
         <button class="btn-primary btn" id="register_btn" type="button">Cadastrar</button>
     </form>
+
+
+
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Estado X População
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <ul class="nav nav-pills nav-fill" id="state_population_graph_menu">
+                        <li class="nav-item">
+                            <a class="nav-link state_population_menu_item" href="#">Barras</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link state_population_menu_item" href="#">Linhas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link state_population_menu_item" href="#">Bolhas</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Estado X Pib
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                  <ul class="nav nav-pills nav-fill" id="state_pib_graph_menu">
+                        <li class="nav-item">
+                            <a class="nav-link state_pib_menu_item" href="#">Barras</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link state_pib_menu_item" href="#">Linhas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link state_pib_menu_item" href="#">Bolhas</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        População x Pib
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <ul class="nav nav-pills nav-fill" id="population_pib_graph_menu">
+                        <li class="nav-item">
+                            <a class="nav-link population_pib_menu_item" href="#">Barras</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link population_pib_menu_item" href="#">Linhas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link population_pib_menu_item" href="#">Bolhas</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
