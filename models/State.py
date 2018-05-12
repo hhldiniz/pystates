@@ -31,7 +31,7 @@ class State:
         db = db_client.get_database(database_name="pystates")
         collection = db["states"]
         result = []
-        for obj in collection.find():
+        for obj in collection.find(projection={'_id': False}):
             result.append(obj)
         return result
 
@@ -42,7 +42,7 @@ class State:
         db_client = MongoDBController()
         db = db_client.get_database(database_name="pystates")
         collection = db["states"]
-        return collection.find_one(obj_filter)
+        return collection.find_one(obj_filter, projection={'_id': False})
 
     @staticmethod
     def get_by_filter(obj_filter=None):
@@ -63,5 +63,5 @@ class State:
         db_client = MongoDBController()
         db = db_client.get_database(database_name="pystates")
         collection = db["states"]
-        obj_to_insert = {name: name, population: population, pib: pib}
+        obj_to_insert = {'name': name, 'population': population, 'pib': pib}
         return collection.insert_one(obj_to_insert)
