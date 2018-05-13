@@ -37,7 +37,7 @@ class HTTPRequest
     {
         this.xmlHttpRequest.send(this.data);
     }
-    setOnLoadCallback(callback)
+    setOnLoadRequestCallback(callback)
     {
         this.xmlHttpRequest.onload = callback;
     }

@@ -63,5 +63,5 @@ class State:
         db_client = MongoDBController()
         db = db_client.get_database(database_name="pystates")
         collection = db["states"]
-        obj_to_insert = {'name': name, 'population': population, 'pib': pib}
+        obj_to_insert = {"name": name, "population": population, "pib": pib}
         return collection.insert_one(obj_to_insert)
